@@ -1,9 +1,9 @@
 import React from "react";
 import "./VideoItem.scss";
 
-const VideoItem = ({ video }) => {
+const VideoItem = ({ video, onVideoSelect }) => {
   return (
-    <div className="video-item item">
+    <div className="video-item item" onClick={() => onVideoSelect(video)}>
       <img
         src={video.snippet.thumbnails.medium.url}
         alt={video.snippet.title}
@@ -11,7 +11,6 @@ const VideoItem = ({ video }) => {
       />
       <div className="content">
         <h3 className="title">{video.snippet.title}</h3>
-        <p>{video.snippet.description}</p>
       </div>
     </div>
   );
