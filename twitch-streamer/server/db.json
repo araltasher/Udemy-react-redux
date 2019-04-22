@@ -1,3 +1,19 @@
 {
-  "streams": []
+  "streams": [
+    {
+      "title": "Stream",
+      "description": "This is the description for the stream",
+      "id": 1
+    },
+    {
+      "title": "Second Stream",
+      "description": "This form will clear itself after submit",
+      "id": 2
+    },
+    {
+      "title": "asdf",
+      "description": "asdf",
+      "id": 3
+    }
+  ]
 }
