@@ -14,6 +14,12 @@
       "title": "asdf",
       "description": "asdf",
       "id": 3
+    },
+    {
+      "title": "No User",
+      "description": "This stream does not have a userId",
+      "userId": null,
+      "id": 4
     }
   ]
 }
