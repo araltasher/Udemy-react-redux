@@ -54,11 +54,18 @@ export const fetchStream = id => async dispatch => {
 };
 
 export const editStream = (id, formValues) => async dispatch => {
-  const response = await streams.put(`/streams/${id}`, formValues);
+  //  We are using PATCH request instead of PUT
+  //  So that only the edits will be changed on
+  //  the document, not everything
+  const response = await streams.patch(`/streams/${id}`, formValues);
   dispatch({
     type: EDIT_STREAM,
     payload: response.data
   });
+
+  //  Programmatic navigation to navigate back
+  //  to list of streams after successful submit
+  history.push("/");
 };
 
 export const deleteStream = id => async dispatch => {
