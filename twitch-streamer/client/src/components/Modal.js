@@ -1,12 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import PropTypes from "prop-types";
-import history from "../history";
 
 const Modal = props => {
   return ReactDOM.createPortal(
     <div
-      onClick={() => history.push("/")}
+      onClick={props.onDismiss}
       className="ui dimmer modals visible active"
     >
       <div
@@ -31,7 +30,8 @@ const Modal = props => {
 Modal.propTypes = {
   title: PropTypes.string.isRequired,
   content: PropTypes.string.isRequired,
-  actions: PropTypes.object.isRequired
+  actions: PropTypes.object.isRequired,
+  onDismiss: PropTypes.func.isRequired
 };
 
 export default Modal;
