@@ -1,13 +1,23 @@
-import React, { Component } from 'react'
+import React, { Component } from "react";
+import LanguageContext from "../contexts/LanguageContext";
+import ColorContext from "../contexts/ColorContext";
 
 class Button extends Component {
+  // Using a Consumer instead of this.context
+
   render() {
     return (
-      <button className="ui button primary">
-        Submit
-      </button>
-    )
+      <ColorContext.Consumer>
+        {color => (
+          <button className={`ui button ${color}`}>
+            <LanguageContext.Consumer>
+              {value => (value === "en" ? "Submit" : "Yükle")}
+            </LanguageContext.Consumer>
+          </button>
+        )}
+      </ColorContext.Consumer>
+    );
   }
 }
 
-export default  Button;
+export default Button;

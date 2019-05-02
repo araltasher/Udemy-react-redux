@@ -1,9 +1,11 @@
 import React, { Component } from "react";
-import UserCreate from './UserCreate';
+import UserCreate from "./UserCreate";
+import LanguageContext from "../contexts/LanguageContext";
+import ColorContext from "../contexts/ColorContext";
 
 class App extends Component {
   state = {
-    language: "eng"
+    language: "en"
   };
 
   onLanguageChange = language => {
@@ -19,7 +21,11 @@ class App extends Component {
           &#8192;
           <i className="flag tr" onClick={() => this.onLanguageChange("tr")} />
         </div>
-        <UserCreate />
+        <LanguageContext.Provider value={this.state.language}>
+          <ColorContext.Provider value="primary">
+            <UserCreate />
+          </ColorContext.Provider>
+        </LanguageContext.Provider>
       </div>
     );
   }
